@@ -1,0 +1,32 @@
+{
+  "name": "apt-finder",
+  "version": "1.0.0",
+  "description": "Finding an apartment",
+  "main": "index.js",
+  "scripts": {
+    "scrape": "node -r dotenv/config index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craigspaeth/apt-finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/craigspaeth/apt-finder/issues"
+  },
+  "homepage": "https://github.com/craigspaeth/apt-finder#readme",
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^4.0.0",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "nightmare": "^2.10.0",
+    "promised-mongo": "^1.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.5.3",
+    "standard": "^10.0.2"
+  }
+}
