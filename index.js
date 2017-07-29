@@ -27,7 +27,9 @@ const main = async () => {
 const scrapeStreetEasy = async () => {
   const html = await nightmare
     .goto(STREET_EASY_URL)
-    .wait(() => !!document.body.querySelector('#result-details'))
+    .wait(() => {
+      !!document.body.querySelector('#result-details')
+    })
     .evaluate(() => document.body.innerHTML)
     .end()
   const $ = cheerio.load(html)
