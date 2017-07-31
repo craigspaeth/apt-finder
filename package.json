@@ -23,7 +23,8 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "nightmare": "^2.10.0",
-    "promised-mongo": "^1.2.0"
+    "promised-mongo": "^1.2.0",
+    "sendgrid": "^5.2.0"
   },
   "devDependencies": {
     "prettier": "^1.5.3",
