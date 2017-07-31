@@ -2,6 +2,7 @@ const moment = require('moment')
 const scrape = require('./lib/scrape')
 const mail = require('./lib/mail')
 const db = require('./lib/db')
+const _ = require('lodash')
 
 const { BEDS, MAX_RENT } = process.env
 
@@ -71,11 +72,11 @@ const scraperConfig = [
     noFee: $li => false
   },
   {
-    url: `https://newyork.craigslist.org/search/abo?query=prospect+heights&max_price=${MAX_RENT}&min_bedrooms=${BEDS}&availabilityMode=0`,
+    url: `https://newyork.craigslist.org/search/abo?query="prospect+heights"&max_price=${MAX_RENT}&min_bedrooms=${BEDS}&max_bedrooms=${BEDS}&availabilityMode=0`,
     liSelector: '.result-row',
     link: $li => $li.find('> a'),
     thumbnail: $li => $li.find('img'),
-    rent: $li => $li.find('.result-price').first(),
+    rent: $li => $li.find('.result-price'),
     noFee: $li => true
   },
   {
@@ -89,7 +90,7 @@ const scraperConfig = [
   {
     url: `https://www.trulia.com/for_rent/5210_nh/${BEDS}p_beds/0-${MAX_RENT}_price/beds;d_sort/`,
     liSelector: '.card',
-    link: $li => $li.find('a').first(),
+    link: $li => $li.find('a'),
     thumbnail: $li => $li.find('.cardPhoto'),
     rent: $li => $li.find('.cardPrice'),
     noFee: $li => false
@@ -98,11 +99,17 @@ const scraperConfig = [
 
 const main = async () => {
   await scrape(scraperConfig)
-  const listings = await db.listings.find({
+  const latestListings = await db.listings.find({
     scrapedOn: {
-      $gte: moment().subtract(5, 'minutes').toDate()
+      $gte: moment().subtract(3, 'minutes').toDate()
     }
   })
+  const realListings = _.filter(
+    latestListings,
+    listing =>
+      Math.abs(Number(MAX_RENT) - listing.rent) <= 1000 && listing.noFee
+  )
+  const listings = _.sortBy(realListings, listing => -listing.rent).reverse()
   if (listings.length) await mail(listings)
   process.exit()
 }

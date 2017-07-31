@@ -23,8 +23,12 @@ npm run scrape
 - [] Urban Edge (Uses JSON endpoint)
 - [] LeaseBreak (Uses client-side POST for HTML)
 
-# Buildings
+## Buildings
 
 - https://ny.curbed.com/2016/7/14/12187804/pacific-park-brooklyn-535-carlton-affordable-housing
 - https://www.common.com
 - https://www.thebrooklynzinc.com/
+
+## TODO
+
+- Calculate fee vs. no in final rent
