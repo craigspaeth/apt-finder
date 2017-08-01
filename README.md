@@ -19,11 +19,11 @@ npm run scrape
 - [x] Craigslist
 - [x] NYBits
 - [x] Trulia
-- [] Joinery
-- [] Simply Brooklyn
-- [] ApartmentList (No search filters)
-- [] Urban Edge (Uses JSON endpoint)
-- [] LeaseBreak (Uses client-side POST for HTML)
+- [ ] Joinery
+- [ ] Simply Brooklyn
+- [ ] ApartmentList (No search filters)
+- [ ] Urban Edge (Uses JSON endpoint)
+- [ ] LeaseBreak (Uses client-side POST for HTML)
 
 ## Buildings
 
