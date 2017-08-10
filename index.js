@@ -1,12 +1,11 @@
-const scrape = require('./lib/scrape')
-const mail = require('./lib/mail')
-const latest = require('./lib/latest')
+const Koa = require('koa')
+const app = new Koa()
 
-const main = async () => {
-  await scrape()
-  const listings = await latest()
-  if (listings.length) await mail(listings)
-  process.exit()
-}
+const { PORT } = process.env
 
-main().catch(console.error)
+app.use(async ctx => {
+  ctx.body = 'Hello World'
+})
+
+app.listen(PORT)
+console.log(`Listening on ${PORT}`)
