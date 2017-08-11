@@ -33,7 +33,7 @@ npm start
 ## TODO
 
 - [x] Finish scrapers
-- [ ] Calculate fee vs. no fee in final rent
-- [ ] Deploy to Heroku (?)
-- [ ] Provide web UI
+- [x] Calculate fee vs. no fee in final rent
+- [x] Deploy to Heroku (?)
+- [x] Provide web UI
 - [ ] Scrape _all_ latest listings

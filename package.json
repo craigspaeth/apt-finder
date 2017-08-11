@@ -7,7 +7,7 @@
     "node": "8.x"
   },
   "scripts": {
-    "scrape": "node -r dotenv/config ./lib/run-scrape.js",
+    "scrape": "node -r dotenv/config ./lib/run-scrape.js && heroku open",
     "start": "node -r dotenv/config .",
     "setup": "heroku git:remote -a craig-apt-finder && printf \"$(cat .env.example)\\n$(heroku config -s)\" > .env"
   },
