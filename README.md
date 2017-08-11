@@ -4,7 +4,9 @@ Finding an apartment with Nightmare.js.
 
 ```
 npm i
+npm run setup
 npm run scrape
+npm start
 ```
 
 ## Scraping
