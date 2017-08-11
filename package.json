@@ -7,8 +7,9 @@
     "node": "8.x"
   },
   "scripts": {
-    "scrape": "node -r dotenv/config lib/scrape.js",
-    "start": "node -r dotenv/config ."
+    "scrape": "node -r dotenv/config ./lib/run-scrape.js",
+    "start": "node -r dotenv/config .",
+    "setup": "heroku git:remote -a craig-apt-finder && printf \"$(cat .env.example)\\n$(heroku config -s)\" > .env"
   },
   "repository": {
     "type": "git",
@@ -22,15 +23,25 @@
   "homepage": "https://github.com/craigspaeth/apt-finder#readme",
   "dependencies": {
     "accounting": "^0.4.1",
+    "browserify": "^14.4.0",
     "cheerio": "^1.0.0-rc.2",
     "dotenv": "^4.0.0",
+    "es2020": "^1.1.9",
+    "http-proxy": "^1.16.2",
     "koa": "^2.3.0",
+    "koa-http-proxy": "0.0.1",
+    "koa-route": "^3.2.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
+    "mongodb": "^2.2.31",
     "nightmare": "^2.10.0",
-    "promised-mongo": "^1.2.0",
+    "normalize.css": "^7.0.0",
+    "reset-css": "^2.2.1",
     "sendgrid": "^5.2.0",
-    "superagent": "^3.5.2"
+    "sheetify": "^6.1.0",
+    "superagent": "^3.5.2",
+    "watchify": "^3.9.0",
+    "yo-yo": "^1.4.1"
   },
   "devDependencies": {
     "prettier": "^1.5.3",
