@@ -9,7 +9,8 @@
   "scripts": {
     "scrape": "node -r dotenv/config ./lib/scrape && heroku open",
     "start": "node -r dotenv/config .",
-    "setup": "heroku git:remote -a craig-apt-finder && printf \"$(cat .env.example)\\n$(heroku config -s)\" > .env"
+    "setup": "heroku git:remote -a craig-apt-finder && printf \"$(cat .env.example)\\n$(heroku config -s)\" > .env",
+    "deploy": "git add . && git commit -a -m 'deploy' && git push origin master && git push heroku master"
   },
   "repository": {
     "type": "git",
