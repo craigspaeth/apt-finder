@@ -25,7 +25,6 @@ npm start
 - [x] Listings project
 - [x] Urban Edge (Uses JSON endpoint)
 - [x] Flip
-- [ ] Oliver
 - [ ] LeaseBreak (Uses client-side POST for HTML)
 - [ ] Simply Brooklyn
 - [ ] ApartmentList (No search filters)
@@ -36,4 +35,4 @@ npm start
 - [x] Calculate fee vs. no fee in final rent
 - [x] Deploy to Heroku (?)
 - [x] Provide web UI
-- [ ] Scrape _all_ latest listings
+- [ ] Scrape _all_ latest listings (by doing a url-per-neighborhood and converting neighborhood slugs to various URLs)
